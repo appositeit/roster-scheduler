@@ -16,7 +16,12 @@ Primary documentation is currently in Google Docs:
    ```sh
    git clone https://github.com/appositeit/roster-scheduler && cd roster-scheduler
     ```
-- **Step 2**. Install requirements
+- **Step 2**. Setup python venv
+  ```sh
+  python3 -m venv .
+  . bin/activate
+  ```
+- **Step 3**. Install requirements
     ```sh
     pip install -r requirements.txt
     ```
