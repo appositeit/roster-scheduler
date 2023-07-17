@@ -1,4 +1,4 @@
-# roster-scheduler
+# roster_scheduler
 *This repo is in early development stage and the only code that does anything is protoype.py.*
 
 An API drive automatic scheduler for oncall rosters driven by calendar availability with plugin support. In short, the roster scheduler can be used to automatically extend team oncall rosters while accounting for their calendar commitments, and try to keep scheduling fair.
