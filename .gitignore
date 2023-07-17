@@ -162,3 +162,4 @@ cython_debug/
 bin/f2py
 lib64
 pyvenv.cfg
+requirements.in
