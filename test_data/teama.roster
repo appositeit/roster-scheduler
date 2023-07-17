@@ -1,34 +1,18 @@
-# Comments are prefixed with a #
-# This configuration file is based in Sydney and
-# has a primary and secondary oncaller.
-
-@CONFIG
-name: TeamSydney
-timezone: Australia/Sydney
-# What time should the current Sydney oncaller change?
-# Note that for oncall schedules with more than one team
-# this time is typically during the other oncall team's
-# shift.
-#
-# All times/dates are in the configured timezone.
-shiftchange: 02:00
-# Oncallers:
-# primary only: oncallers = 1
-# primary, secondary: oncallers = 2
-# primary, secondary, tertiary: oncallers = 3
-oncallers: 2
-
-
-@PEOPLE
-personA@calendar    personA
-personB@calendar    personB
-personC@calendar    personC
-personD@calendar    personD
-
-@ONCALL
-2023-07-01    personA   personC
-2023-07-02    personB   personD
-2023-07-03    personC   personA
-2023-07-04    personD   personB
-2023-07-05    personA   personC
-2023-07-06    personB   personD
+teamA:
+  configuration:
+    name: teamA
+    shiftchange: 02:00
+    timezone: Australia/Sydney
+  shifts:
+  - - '2023-07-01'
+    - - personA
+      - personC
+  - - '2023-07-02'
+    - - personB
+      - personD
+  - - '2023-07-03'
+    - - personC
+      - personA
+  - - '2023-07-04'
+    - - personD
+      - personB

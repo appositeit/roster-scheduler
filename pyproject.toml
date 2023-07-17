@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "Roster Scheduler"
+description = "An API drive automatic scheduler for oncall rosters driven by calendar availability with plugin support. In short, the roster scheduler can be used to automatically extend team oncall rosters while accounting for their calendar commitments, and try to keep scheduling fair."
+readme = "README.md"
+authors = [
+  { name = "Jenna Nelson", email = "jnelson@apposite.com.au" },
+]
+maintainers = [
+  { name = "Jenna Nelson", email = "jnelson@apposite.com.au" },
+]
+requires-python = ">=3.8"
+
+dependencies = [
+  "typing_extensions",
+]
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "License :: OSI Approved :: BSD License",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Physics",
+]
+
+[project.urls]
+Homepage = "https://github.com/appositeit/roster_scheduler"
+Documentation = "https://roster_scheduler.readthedocs.io/"
+"Bug Tracker" = "https://github.com/appositeit/roster_scheduler/issues"
+Discussions = "https://github.com/appositeit/roster_scheduler/discussions"
+Changelog = "https://roster_scheduler.readthedocs.io/en/latest/changelog.html"
+
