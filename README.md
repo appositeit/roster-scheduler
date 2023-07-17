@@ -14,7 +14,7 @@ Primary documentation is currently in Google Docs:
 
 - **Step 1**. Clone the repo
    ```sh
-   git clone https://github.com/appositeit/roster-scheduler && cd roster-scheduler
+   git clone https://github.com/appositeit/roster_scheduler && cd roster_scheduler
     ```
 - **Step 2**. Setup python venv
   ```sh
