@@ -1,0 +1,115 @@
+syntax = "proto3";
+
+package oncall;
+
+message Time {
+    // When this time starts, including timezone id as defined by [IANA Time Zone Database](https://www.iana.org/time-zones)
+    optional string timezone_id = 1;
+    optional int64 time = 2;
+}
+
+// Scheduler API
+
+enum Actions {
+    ROSTER_UNSPECIFIED = 0;
+    ROSTER_EXTEND = 1;
+    ROSTER_REBUILD = 2;
+}
+
+message ScheduleRequest {
+    string service_name = 1;
+    Actions action = 2;
+    optional bool diff_only = 3;
+}
+
+message ScheduleReply{
+    optional string err = 1;
+    optional Roster roster = 2;
+}
+
+service SchedulerService {
+    rpc Schedule(ScheduleRequest) returns (ScheduleReply) {};
+}
+
+// Roster API
+message Person {
+    //  ref is the external reference- a calendar URL, login or other calenar system specific identifier
+    optional string ref = 1;
+    // name is an internal reference/display name used for easier readability when displaying the oncall rotation
+    optional string name = 2;
+}
+
+message RosterEntry {
+    // Timebounds do not include finish, i.e. the entry time spans from start <= entry < finish
+    optional Time start = 1;
+    optional Time finish = 2;
+    // Who is on the roster
+    repeated string name = 3;
+}
+
+message Settings {
+    optional string key = 1;
+    optional string value = 2;
+}
+
+message Roster {
+    string service_name = 1;
+    repeated Person people = 2;
+    repeated Settings settings = 3;
+    repeated RosterEntry entries = 4;
+}
+
+message GetRosterRequest {
+    optional string service_name = 1;
+    // If start is null/empty then the history of the roster should be returned.
+    optional Time start = 2;
+    // If finish is null/empty then the roster to the last entry should be returned.
+    optional Time finish = 3;
+}
+
+message GetRosterReply {
+    optional string err = 1;
+    optional Roster roster = 2;
+}
+
+message SetRosterRequest {
+    optional Roster roster = 2;
+}
+
+message SetRosterReply {
+    optional string err = 1;
+}
+
+service RosterService {
+    rpc GetRoster(GetRosterRequest) returns (GetRosterReply) {};
+    rpc SetRoster(SetRosterRequest) returns (SetRosterReply) {};
+}
+
+
+// Calendar RPC
+message CalendarEntry {
+    optional Time start = 1;
+    optional Time finish = 2;
+
+    optional string subject = 3; 
+}
+
+message Calendar {
+    repeated CalendarEntry entry = 1;
+}
+
+message GetCalendarRequest {
+    optional Time start = 1;
+    optional Time finish = 2;
+
+    optional string external_reference= 5;
+}
+
+message GetCalendarReply {
+    optional string err = 1;
+    repeated CalendarEntry entry = 2;
+}
+
+service CalendarService {
+    rpc GetCalendar(GetCalendarRequest) returns (GetCalendarReply) {}
+}

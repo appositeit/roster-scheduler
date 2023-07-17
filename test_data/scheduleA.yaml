@@ -1,0 +1,53 @@
+people:
+  personA: personA@calendar
+  personB: personB@calendar
+  personC: personC@calendar
+  personD: personD@calendar
+  personE: personE@calendar
+  personF: personF@calendar
+  personG: personG@calendar
+  personH: personH@calendar
+rosters:
+  teamA:
+    configuration:
+      name: teamA
+      shiftchange: 02:00
+      timezone: Australia/Sydney
+    shifts:
+    - - '2023-07-01'
+      - - personA
+        - personC
+    - - '2023-07-02'
+      - - personB
+        - personD
+    - - '2023-07-03'
+      - - personC
+        - personA
+    - - '2023-07-04'
+      - - personD
+        - personB
+  teamB:
+    configuration:
+      name: teamB
+      shiftchange: 02:00
+      timezone: Europe/Zurich
+    shifts:
+    - - '2023-07-01'
+      - - personE
+        - personG
+    - - '2023-07-02'
+      - - personF
+        - personH
+    - - '2023-07-03'
+      - - personG
+        - personE
+    - - '2023-07-04'
+      - - personH
+        - personF
+schedule:
+  rosters:
+  - name: teamA
+    rotation_time: 08:00
+  - name: teamB
+    rotation_time: '20:00'
+  service_name: Big Web Service

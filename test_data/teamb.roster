@@ -1,0 +1,19 @@
+@CONFIG
+name: TeamZurich
+timezone: Europe/Zurich
+shiftchange: 02:00
+
+
+@PEOPLE
+personE@calendar    personE
+personF@calendar    personF
+personG@calendar    personG
+personH@calendar    personH
+
+@ONCALL
+2023-07-01    personE
+2023-07-02    personF
+2023-07-03    personG
+2023-07-04    personH
+2023-07-05    personE
+2023-07-06    personF
